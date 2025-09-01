@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.icu.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity
 {
     @Override
@@ -30,10 +32,17 @@ public void myButtonListenerMethod() {
                   findViewById(R.id.weightInput);
           String weightStr = weightText.getText().toString();
           double weight = Double.parseDouble(weightStr);
+
           double BMI = (weight)/(height*height);
+          DecimalFormat df = new DecimalFormat("#.#");
+          double BMI_trimmed =
+                  Double.parseDouble(df.format(BMI));
           final EditText BMIResult = (EditText)
                   findViewById(R.id.BMIResult);
-          BMIResult.setText(Double.toString(BMI));
+          BMIResult.setText(Double.toString(BMI_trimmed));
+
+
+
           String BMI_Cat;
           if (BMI < 15)
               BMI_Cat = "Very severely underweight";
