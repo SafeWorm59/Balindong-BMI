@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 EditText BMIResult = findViewById(R.id.BMIResult);
                 BMIResult.setText(Double.toString(BMI_trimmed));
 
-                // Categories with names + thresholds
+                // pang category
                 String BMI_Cat = "";
                 String prevCat = "None";
                 String nextCat = "None";
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView BMICategory = findViewById(R.id.BMICategory);
                 BMICategory.setText(BMI_Cat);
 
-                // How much to move to reach prev or next
+                // para alam ng code na magkaano ang BMI para sa previous at next na obesity or BMI level niya
                 double toLower = (lower == 0) ? 0 : BMI_trimmed - lower;
                 double toUpper = (upper == Double.MAX_VALUE) ? 0 : upper - BMI_trimmed;
 
